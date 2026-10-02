@@ -1,0 +1,206 @@
+:root {
+  --aura: rgba(70, 110, 255, 0.45);
+  --text: #f2f4ff;
+  --text-dim: rgba(242, 244, 255, 0.55);
+  --text-faint: rgba(242, 244, 255, 0.4);
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --accent: #5f7dff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(600px 400px at 15% 5%, rgba(30, 60, 180, 0.28), transparent 65%),
+    radial-gradient(700px 500px at 85% 95%, rgba(70, 30, 160, 0.22), transparent 65%),
+    radial-gradient(400px 300px at 70% 20%, rgba(20, 40, 120, 0.18), transparent 60%),
+    #05070d;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 32px 24px;
+}
+
+.brand {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--text-dim);
+}
+
+.card.glass {
+  background: var(--glass);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: 26px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  padding: 28px 24px;
+}
+
+.now-playing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.album-wrap {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  margin-bottom: 6px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.35));
+  border-radius: 22px;
+}
+
+.album-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -34px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--aura), transparent 70%);
+  filter: blur(34px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+#album-art {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.6);
+}
+
+#track-title {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+#artist-name {
+  font-size: 15px;
+  color: var(--text-dim);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.controls.small {
+  margin-top: 4px;
+}
+
+.icon-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+.icon-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.icon-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+  transform: scale(1.06);
+}
+
+.icon-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.icon-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.icon-btn.primary {
+  width: 62px;
+  height: 62px;
+  background: linear-gradient(145deg, #6b86ff, #3f5cf0);
+  border: none;
+  box-shadow: 0 8px 26px rgba(70, 110, 255, 0.45);
+}
+
+.icon-btn.primary svg {
+  width: 34px;
+  height: 34px;
+}
+
+.controls.small .icon-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.controls.small .icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.phase {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+#timer-display {
+  font-family: "SF Mono", "Cascadia Code", ui-monospace, "JetBrains Mono", monospace;
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  text-shadow: 0 0 24px rgba(95, 125, 255, 0.35);
+}
+
+.session {
+  font-size: 12px;
+  color: var(--text-faint);
+}

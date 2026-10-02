@@ -1,0 +1,28 @@
+# Environment
+.env
+.env.local
+*.env
+
+# Runtime logs / pids
+*.log
+*.pid
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Spotify token cache
+.spotify_token_cache
+
+# Next.js / Node
+flowsound-frontend/node_modules/
+flowsound-frontend/.next/
+flowsound-frontend/out/
+flowsound-frontend/.env*.local
+npm-debug.log*
+
+# IDE / OS
+.idea/
+.DS_Store
